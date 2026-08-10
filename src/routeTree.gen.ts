@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommunityIndexRouteImport } from './routes/community.index'
+import { Route as CommunityGuidelinesRouteImport } from './routes/community.guidelines'
+import { Route as CommunitySafetyRouteImport } from './routes/community.safety'
+import { Route as CommunitySupportRouteImport } from './routes/community.support'
+import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
+import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.business'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityIndexRoute = CommunityIndexRouteImport.update({
+  id: '/community/',
+  path: '/community/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityGuidelinesRoute = CommunityGuidelinesRouteImport.update({
+  id: '/community/guidelines',
+  path: '/community/guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunitySafetyRoute = CommunitySafetyRouteImport.update({
+  id: '/community/safety',
+  path: '/community/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunitySupportRoute = CommunitySupportRouteImport.update({
+  id: '/community/support',
+  path: '/community/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
+  id: '/onboarding/',
+  path: '/onboarding/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingBusinessRoute = OnboardingBusinessRouteImport.update({
+  id: '/onboarding/business',
+  path: '/onboarding/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/community/guidelines': typeof CommunityGuidelinesRoute
+  '/community/safety': typeof CommunitySafetyRoute
+  '/community/support': typeof CommunitySupportRoute
+  '/onboarding/business': typeof OnboardingBusinessRoute
+  '/community/': typeof CommunityIndexRoute
+  '/onboarding/': typeof OnboardingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/community/guidelines': typeof CommunityGuidelinesRoute
+  '/community/safety': typeof CommunitySafetyRoute
+  '/community/support': typeof CommunitySupportRoute
+  '/onboarding/business': typeof OnboardingBusinessRoute
+  '/community': typeof CommunityIndexRoute
+  '/onboarding': typeof OnboardingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/community/guidelines': typeof CommunityGuidelinesRoute
+  '/community/safety': typeof CommunitySafetyRoute
+  '/community/support': typeof CommunitySupportRoute
+  '/onboarding/business': typeof OnboardingBusinessRoute
+  '/community/': typeof CommunityIndexRoute
+  '/onboarding/': typeof OnboardingIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/community/guidelines'
+    | '/community/safety'
+    | '/community/support'
+    | '/onboarding/business'
+    | '/community/'
+    | '/onboarding/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/community/guidelines'
+    | '/community/safety'
+    | '/community/support'
+    | '/onboarding/business'
+    | '/community'
+    | '/onboarding'
+  id:
+    | '__root__'
+    | '/'
+    | '/community/guidelines'
+    | '/community/safety'
+    | '/community/support'
+    | '/onboarding/business'
+    | '/community/'
+    | '/onboarding/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
+  CommunitySafetyRoute: typeof CommunitySafetyRoute
+  CommunitySupportRoute: typeof CommunitySupportRoute
+  OnboardingBusinessRoute: typeof OnboardingBusinessRoute
+  CommunityIndexRoute: typeof CommunityIndexRoute
+  OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community/': {
+      id: '/community/'
+      path: '/community'
+      fullPath: '/community/'
+      preLoaderRoute: typeof CommunityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/guidelines': {
+      id: '/community/guidelines'
+      path: '/community/guidelines'
+      fullPath: '/community/guidelines'
+      preLoaderRoute: typeof CommunityGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/safety': {
+      id: '/community/safety'
+      path: '/community/safety'
+      fullPath: '/community/safety'
+      preLoaderRoute: typeof CommunitySafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/support': {
+      id: '/community/support'
+      path: '/community/support'
+      fullPath: '/community/support'
+      preLoaderRoute: typeof CommunitySupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding/': {
+      id: '/onboarding/'
+      path: '/onboarding'
+      fullPath: '/onboarding/'
+      preLoaderRoute: typeof OnboardingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding/business': {
+      id: '/onboarding/business'
+      path: '/onboarding/business'
+      fullPath: '/onboarding/business'
+      preLoaderRoute: typeof OnboardingBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunityGuidelinesRoute: CommunityGuidelinesRoute,
+  CommunitySafetyRoute: CommunitySafetyRoute,
+  CommunitySupportRoute: CommunitySupportRoute,
+  OnboardingBusinessRoute: OnboardingBusinessRoute,
+  CommunityIndexRoute: CommunityIndexRoute,
+  OnboardingIndexRoute: OnboardingIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

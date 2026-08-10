@@ -3,9 +3,9 @@ import { useState } from "react";
 import { Check, ArrowLeft, ArrowRight, PartyPopper } from "lucide-react";
 import { SiteHeader } from "@/components/PageShell";
 
-type Search = { id?: string; mode?: "login" | "signup" };
+type Search = { id?: string | undefined; mode?: "login" | "signup" | undefined };
 
-export const Route = createFileRoute("/onboarding")({
+export const Route = createFileRoute("/onboarding/")({
   validateSearch: (search: Record<string, unknown>): Search => ({
     id: typeof search["id"] === "string" ? (search["id"] as string) : undefined,
     mode: search["mode"] === "login" ? "login" : undefined,
