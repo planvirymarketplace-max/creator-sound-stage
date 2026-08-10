@@ -10,10 +10,16 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvertisingIndexRouteImport } from './routes/advertising.index'
+import { Route as AdvertisingBusinessesRouteImport } from './routes/advertising.businesses'
+import { Route as AdvertisingCreatorsRouteImport } from './routes/advertising.creators'
+import { Route as AdvertisingLabelsRouteImport } from './routes/advertising.labels'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as CommunityGuidelinesRouteImport } from './routes/community.guidelines'
 import { Route as CommunitySafetyRouteImport } from './routes/community.safety'
 import { Route as CommunitySupportRouteImport } from './routes/community.support'
+import { Route as ForDistributorsRouteImport } from './routes/for.distributors'
+import { Route as ForSyncAgentsRouteImport } from './routes/for.sync-agents'
 import { Route as LegalCopyrightRouteImport } from './routes/legal.copyright'
 import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
 import { Route as LegalRightsRouteImport } from './routes/legal.rights'
@@ -24,6 +30,26 @@ import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.busi
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingIndexRoute = AdvertisingIndexRouteImport.update({
+  id: '/advertising/',
+  path: '/advertising/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingBusinessesRoute = AdvertisingBusinessesRouteImport.update({
+  id: '/advertising/businesses',
+  path: '/advertising/businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingCreatorsRoute = AdvertisingCreatorsRouteImport.update({
+  id: '/advertising/creators',
+  path: '/advertising/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingLabelsRoute = AdvertisingLabelsRouteImport.update({
+  id: '/advertising/labels',
+  path: '/advertising/labels',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityIndexRoute = CommunityIndexRouteImport.update({
@@ -44,6 +70,16 @@ const CommunitySafetyRoute = CommunitySafetyRouteImport.update({
 const CommunitySupportRoute = CommunitySupportRouteImport.update({
   id: '/community/support',
   path: '/community/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForDistributorsRoute = ForDistributorsRouteImport.update({
+  id: '/for/distributors',
+  path: '/for/distributors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForSyncAgentsRoute = ForSyncAgentsRouteImport.update({
+  id: '/for/sync-agents',
+  path: '/for/sync-agents',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LegalCopyrightRoute = LegalCopyrightRouteImport.update({
@@ -79,41 +115,59 @@ const OnboardingBusinessRoute = OnboardingBusinessRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advertising/businesses': typeof AdvertisingBusinessesRoute
+  '/advertising/creators': typeof AdvertisingCreatorsRoute
+  '/advertising/labels': typeof AdvertisingLabelsRoute
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/for/distributors': typeof ForDistributorsRoute
+  '/for/sync-agents': typeof ForSyncAgentsRoute
   '/legal/copyright': typeof LegalCopyrightRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advertising/businesses': typeof AdvertisingBusinessesRoute
+  '/advertising/creators': typeof AdvertisingCreatorsRoute
+  '/advertising/labels': typeof AdvertisingLabelsRoute
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/for/distributors': typeof ForDistributorsRoute
+  '/for/sync-agents': typeof ForSyncAgentsRoute
   '/legal/copyright': typeof LegalCopyrightRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/advertising': typeof AdvertisingIndexRoute
   '/community': typeof CommunityIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advertising/businesses': typeof AdvertisingBusinessesRoute
+  '/advertising/creators': typeof AdvertisingCreatorsRoute
+  '/advertising/labels': typeof AdvertisingLabelsRoute
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/for/distributors': typeof ForDistributorsRoute
+  '/for/sync-agents': typeof ForSyncAgentsRoute
   '/legal/copyright': typeof LegalCopyrightRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
 }
@@ -121,54 +175,78 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/advertising/businesses'
+    | '/advertising/creators'
+    | '/advertising/labels'
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/for/distributors'
+    | '/for/sync-agents'
     | '/legal/copyright'
     | '/legal/privacy'
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/advertising/'
     | '/community/'
     | '/onboarding/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/advertising/businesses'
+    | '/advertising/creators'
+    | '/advertising/labels'
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/for/distributors'
+    | '/for/sync-agents'
     | '/legal/copyright'
     | '/legal/privacy'
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/advertising'
     | '/community'
     | '/onboarding'
   id:
     | '__root__'
     | '/'
+    | '/advertising/businesses'
+    | '/advertising/creators'
+    | '/advertising/labels'
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/for/distributors'
+    | '/for/sync-agents'
     | '/legal/copyright'
     | '/legal/privacy'
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/advertising/'
     | '/community/'
     | '/onboarding/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvertisingBusinessesRoute: typeof AdvertisingBusinessesRoute
+  AdvertisingCreatorsRoute: typeof AdvertisingCreatorsRoute
+  AdvertisingLabelsRoute: typeof AdvertisingLabelsRoute
   CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
   CommunitySafetyRoute: typeof CommunitySafetyRoute
   CommunitySupportRoute: typeof CommunitySupportRoute
+  ForDistributorsRoute: typeof ForDistributorsRoute
+  ForSyncAgentsRoute: typeof ForSyncAgentsRoute
   LegalCopyrightRoute: typeof LegalCopyrightRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalRightsRoute: typeof LegalRightsRoute
   LegalTermsRoute: typeof LegalTermsRoute
   OnboardingBusinessRoute: typeof OnboardingBusinessRoute
+  AdvertisingIndexRoute: typeof AdvertisingIndexRoute
   CommunityIndexRoute: typeof CommunityIndexRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
 }
@@ -180,6 +258,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising/': {
+      id: '/advertising/'
+      path: '/advertising'
+      fullPath: '/advertising/'
+      preLoaderRoute: typeof AdvertisingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising/businesses': {
+      id: '/advertising/businesses'
+      path: '/advertising/businesses'
+      fullPath: '/advertising/businesses'
+      preLoaderRoute: typeof AdvertisingBusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising/creators': {
+      id: '/advertising/creators'
+      path: '/advertising/creators'
+      fullPath: '/advertising/creators'
+      preLoaderRoute: typeof AdvertisingCreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising/labels': {
+      id: '/advertising/labels'
+      path: '/advertising/labels'
+      fullPath: '/advertising/labels'
+      preLoaderRoute: typeof AdvertisingLabelsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community/': {
@@ -208,6 +314,20 @@ declare module '@tanstack/react-router' {
       path: '/community/support'
       fullPath: '/community/support'
       preLoaderRoute: typeof CommunitySupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for/distributors': {
+      id: '/for/distributors'
+      path: '/for/distributors'
+      fullPath: '/for/distributors'
+      preLoaderRoute: typeof ForDistributorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for/sync-agents': {
+      id: '/for/sync-agents'
+      path: '/for/sync-agents'
+      fullPath: '/for/sync-agents'
+      preLoaderRoute: typeof ForSyncAgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legal/copyright': {
@@ -257,14 +377,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvertisingBusinessesRoute: AdvertisingBusinessesRoute,
+  AdvertisingCreatorsRoute: AdvertisingCreatorsRoute,
+  AdvertisingLabelsRoute: AdvertisingLabelsRoute,
   CommunityGuidelinesRoute: CommunityGuidelinesRoute,
   CommunitySafetyRoute: CommunitySafetyRoute,
   CommunitySupportRoute: CommunitySupportRoute,
+  ForDistributorsRoute: ForDistributorsRoute,
+  ForSyncAgentsRoute: ForSyncAgentsRoute,
   LegalCopyrightRoute: LegalCopyrightRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalRightsRoute: LegalRightsRoute,
   LegalTermsRoute: LegalTermsRoute,
   OnboardingBusinessRoute: OnboardingBusinessRoute,
+  AdvertisingIndexRoute: AdvertisingIndexRoute,
   CommunityIndexRoute: CommunityIndexRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,
 }
