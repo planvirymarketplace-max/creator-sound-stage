@@ -14,6 +14,10 @@ import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as CommunityGuidelinesRouteImport } from './routes/community.guidelines'
 import { Route as CommunitySafetyRouteImport } from './routes/community.safety'
 import { Route as CommunitySupportRouteImport } from './routes/community.support'
+import { Route as LegalCopyrightRouteImport } from './routes/legal.copyright'
+import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
+import { Route as LegalRightsRouteImport } from './routes/legal.rights'
+import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.business'
 
@@ -42,6 +46,26 @@ const CommunitySupportRoute = CommunitySupportRouteImport.update({
   path: '/community/support',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalCopyrightRoute = LegalCopyrightRouteImport.update({
+  id: '/legal/copyright',
+  path: '/legal/copyright',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalRightsRoute = LegalRightsRouteImport.update({
+  id: '/legal/rights',
+  path: '/legal/rights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalTermsRoute = LegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   id: '/onboarding/',
   path: '/onboarding/',
@@ -58,6 +82,10 @@ export interface FileRoutesByFullPath {
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/legal/copyright': typeof LegalCopyrightRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/rights': typeof LegalRightsRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
@@ -67,6 +95,10 @@ export interface FileRoutesByTo {
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/legal/copyright': typeof LegalCopyrightRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/rights': typeof LegalRightsRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
   '/community': typeof CommunityIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
@@ -77,6 +109,10 @@ export interface FileRoutesById {
   '/community/guidelines': typeof CommunityGuidelinesRoute
   '/community/safety': typeof CommunitySafetyRoute
   '/community/support': typeof CommunitySupportRoute
+  '/legal/copyright': typeof LegalCopyrightRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/rights': typeof LegalRightsRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
@@ -88,6 +124,10 @@ export interface FileRouteTypes {
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/legal/copyright'
+    | '/legal/privacy'
+    | '/legal/rights'
+    | '/legal/terms'
     | '/onboarding/business'
     | '/community/'
     | '/onboarding/'
@@ -97,6 +137,10 @@ export interface FileRouteTypes {
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/legal/copyright'
+    | '/legal/privacy'
+    | '/legal/rights'
+    | '/legal/terms'
     | '/onboarding/business'
     | '/community'
     | '/onboarding'
@@ -106,6 +150,10 @@ export interface FileRouteTypes {
     | '/community/guidelines'
     | '/community/safety'
     | '/community/support'
+    | '/legal/copyright'
+    | '/legal/privacy'
+    | '/legal/rights'
+    | '/legal/terms'
     | '/onboarding/business'
     | '/community/'
     | '/onboarding/'
@@ -116,6 +164,10 @@ export interface RootRouteChildren {
   CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
   CommunitySafetyRoute: typeof CommunitySafetyRoute
   CommunitySupportRoute: typeof CommunitySupportRoute
+  LegalCopyrightRoute: typeof LegalCopyrightRoute
+  LegalPrivacyRoute: typeof LegalPrivacyRoute
+  LegalRightsRoute: typeof LegalRightsRoute
+  LegalTermsRoute: typeof LegalTermsRoute
   OnboardingBusinessRoute: typeof OnboardingBusinessRoute
   CommunityIndexRoute: typeof CommunityIndexRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
@@ -158,6 +210,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CommunitySupportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/copyright': {
+      id: '/legal/copyright'
+      path: '/legal/copyright'
+      fullPath: '/legal/copyright'
+      preLoaderRoute: typeof LegalCopyrightRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/privacy': {
+      id: '/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LegalPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/rights': {
+      id: '/legal/rights'
+      path: '/legal/rights'
+      fullPath: '/legal/rights'
+      preLoaderRoute: typeof LegalRightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/terms': {
+      id: '/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LegalTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onboarding/': {
       id: '/onboarding/'
       path: '/onboarding'
@@ -180,6 +260,10 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityGuidelinesRoute: CommunityGuidelinesRoute,
   CommunitySafetyRoute: CommunitySafetyRoute,
   CommunitySupportRoute: CommunitySupportRoute,
+  LegalCopyrightRoute: LegalCopyrightRoute,
+  LegalPrivacyRoute: LegalPrivacyRoute,
+  LegalRightsRoute: LegalRightsRoute,
+  LegalTermsRoute: LegalTermsRoute,
   OnboardingBusinessRoute: OnboardingBusinessRoute,
   CommunityIndexRoute: CommunityIndexRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,
