@@ -286,10 +286,7 @@ function Landing() {
                     </Link>
                   </h2>
                 </div>
-                <div
-                  style={{ "--p": 0 } as React.CSSProperties}
-                  className="max-w-lg [opacity:calc(0.2_+_var(--p)_*_0.8)]"
-                >
+                <div className="max-w-lg">
                   <p className="mt-8 text-lg leading-relaxed text-ink-muted">{s.body}</p>
                   <Link
                     to={s.to}
