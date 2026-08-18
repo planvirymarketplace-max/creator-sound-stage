@@ -8,7 +8,7 @@ export function Globe({ className = "" }: { className?: string }) {
 
   return (
     <div className={`pointer-events-none select-none ${className}`} aria-hidden="true">
-      <div className="relative aspect-square w-full">
+      <div className="relative aspect-square w-full [perspective:900px]">
         {/* orbit rings */}
         <div className="absolute inset-[-14%] animate-globe-orbit rounded-full border border-primary/25 [transform:rotateX(74deg)]" />
         <div className="absolute inset-[-24%] animate-globe-orbit-slow rounded-full border border-white/8 [transform:rotateX(78deg)_rotateZ(18deg)]" />
