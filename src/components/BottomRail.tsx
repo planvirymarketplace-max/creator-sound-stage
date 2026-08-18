@@ -68,7 +68,7 @@ export function BottomRail() {
     <footer className="relative isolate overflow-hidden bg-ink text-ink-foreground">
       {/* Global view of the world */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <Globe className="absolute -bottom-16 -right-10 w-[min(300px,70vw)] opacity-70 sm:-bottom-20 sm:right-6 sm:w-[min(380px,32vw)]" />
+        <Globe className="absolute -bottom-16 -right-10 w-[min(300px,70vw)] opacity-60 sm:-bottom-28 sm:right-2 sm:w-[min(360px,30vw)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink to-transparent" />
       </div>
 
