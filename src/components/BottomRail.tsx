@@ -67,13 +67,13 @@ export function BottomRail() {
   return (
     <footer className="relative isolate overflow-hidden bg-ink text-ink-foreground">
       {/* Global view of the world */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 z-0">
         <Globe className="absolute -bottom-16 -right-10 w-[min(300px,70vw)] opacity-70 sm:-bottom-20 sm:right-6 sm:w-[min(380px,32vw)]" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink to-transparent" />
       </div>
 
       {/* Tier 1 — structured columns */}
-      <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-16 pb-10">
         <div className="flex flex-wrap items-end justify-between gap-6 pb-10">
           <p className="max-w-md font-display text-2xl leading-tight sm:text-3xl">
             Built for music independents.{" "}
@@ -111,7 +111,7 @@ export function BottomRail() {
       </div>
 
       {/* Tier 2 — the drifting flat rail */}
-      <div className="relative border-y border-white/10 bg-black/30 py-3 backdrop-blur-sm">
+      <div className="relative z-10 border-y border-white/10 bg-black/30 py-3 backdrop-blur-sm">
         <div className="flex w-max animate-rail-drift gap-8 whitespace-nowrap will-change-transform hover:[animation-play-state:paused]">
           {[0, 1].map((dup) => (
             <div key={dup} className="flex gap-8" aria-hidden={dup === 1}>
@@ -131,7 +131,7 @@ export function BottomRail() {
       </div>
 
       {/* Tier 3 — signature */}
-      <div className="mx-auto grid w-full max-w-6xl gap-6 px-6 py-10 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-6 px-6 py-10 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
         <Logo className="h-10 sm:h-14" />
         <div className="sm:text-right">
           <p className="text-sm text-ink-muted">Everything music. One place.</p>
