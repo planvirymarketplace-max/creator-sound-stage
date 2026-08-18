@@ -14,13 +14,13 @@ export function Globe({ className = "" }: { className?: string }) {
         <div className="absolute inset-[-24%] animate-globe-orbit-slow rounded-full border border-white/8 [transform:rotateX(78deg)_rotateZ(18deg)]" />
 
         {/* sphere */}
-        <div className="absolute inset-0 overflow-hidden rounded-full bg-[radial-gradient(circle_at_32%_28%,oklch(0.34_0.02_60),oklch(0.13_0.008_60)_62%,oklch(0.1_0.006_60))] shadow-[inset_0_0_60px_oklch(0_0_0/0.7),0_30px_80px_-40px_oklch(0.72_0.19_45/0.5)]">
+        <div className="absolute inset-0 overflow-hidden rounded-full bg-[radial-gradient(circle_at_32%_28%,oklch(0.42_0.05_50),oklch(0.17_0.01_60)_62%,oklch(0.1_0.006_60))] shadow-[inset_0_0_60px_oklch(0_0_0/0.7),0_30px_80px_-40px_oklch(0.72_0.19_45/0.5)]">
           {/* latitudes */}
           <div className="absolute inset-0">
             {[16, 30, 44, 50, 56, 70, 84].map((t) => (
               <span
                 key={t}
-                className="absolute left-0 h-px w-full bg-white/14"
+                className="absolute left-0 h-px w-full bg-white/25"
                 style={{ top: `${t}%` }}
               />
             ))}
@@ -31,7 +31,7 @@ export function Globe({ className = "" }: { className?: string }) {
             {meridians.map((deg) => (
               <span
                 key={deg}
-                className="absolute left-1/2 top-0 h-full w-1/2 origin-left rounded-[50%] border border-primary/25"
+                className="absolute left-1/2 top-0 h-full w-1/2 origin-left rounded-[50%] border border-primary/40"
                 style={{ transform: `translateX(-50%) rotateY(${deg}deg)` }}
               />
             ))}
