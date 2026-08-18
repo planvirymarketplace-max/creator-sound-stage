@@ -140,3 +140,84 @@
     linear-gradient(to bottom, oklch(0 0 0 / 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* ---- Globe + motion ---- */
+@keyframes globe-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes globe-orbit {
+  from {
+    transform: rotateX(74deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(74deg) rotateZ(360deg);
+  }
+}
+
+@keyframes globe-orbit-slow {
+  from {
+    transform: rotateX(78deg) rotateZ(18deg);
+  }
+  to {
+    transform: rotateX(78deg) rotateZ(378deg);
+  }
+}
+
+@keyframes globe-ping {
+  0%,
+  70%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes rail-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-globe-spin {
+  transform-style: preserve-3d;
+  animation: globe-spin 28s linear infinite;
+}
+
+@utility animate-globe-orbit {
+  animation: globe-orbit 22s linear infinite;
+}
+
+@utility animate-globe-orbit-slow {
+  animation: globe-orbit-slow 40s linear infinite reverse;
+}
+
+@utility animate-globe-ping {
+  animation: globe-ping 4.4s ease-in-out infinite;
+}
+
+@utility animate-rail-drift {
+  animation: rail-drift 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
