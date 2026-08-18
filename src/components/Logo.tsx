@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoAsset from "@/assets/musicosy-logo.png.asset.json";
+import logoAsset from "@/assets/musicosy-logo-light.png.asset.json";
 
 export function Logo({ className = "h-8" }: { className?: string }) {
   return (
@@ -8,7 +8,6 @@ export function Logo({ className = "h-8" }: { className?: string }) {
         src={logoAsset.url}
         alt="Musicosy"
         className={`${className} w-auto object-contain`}
-        loading="lazy"
       />
     </Link>
   );
