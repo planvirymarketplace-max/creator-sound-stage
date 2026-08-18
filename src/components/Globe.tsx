@@ -10,7 +10,7 @@ export function Globe({ className = "" }: { className?: string }) {
     <div className={`pointer-events-none select-none ${className}`} aria-hidden="true">
       <div className="relative aspect-square w-full">
         {/* orbit rings */}
-        <div className="absolute inset-[-14%] animate-globe-orbit rounded-full border border-primary/15 [transform:rotateX(74deg)]" />
+        <div className="absolute inset-[-14%] animate-globe-orbit rounded-full border border-primary/25 [transform:rotateX(74deg)]" />
         <div className="absolute inset-[-24%] animate-globe-orbit-slow rounded-full border border-white/8 [transform:rotateX(78deg)_rotateZ(18deg)]" />
 
         {/* sphere */}
@@ -20,7 +20,7 @@ export function Globe({ className = "" }: { className?: string }) {
             {[16, 30, 44, 50, 56, 70, 84].map((t) => (
               <span
                 key={t}
-                className="absolute left-0 h-px w-full bg-white/10"
+                className="absolute left-0 h-px w-full bg-white/14"
                 style={{ top: `${t}%` }}
               />
             ))}
@@ -31,7 +31,7 @@ export function Globe({ className = "" }: { className?: string }) {
             {meridians.map((deg) => (
               <span
                 key={deg}
-                className="absolute left-1/2 top-0 h-full w-1/2 origin-left rounded-[50%] border border-primary/12"
+                className="absolute left-1/2 top-0 h-full w-1/2 origin-left rounded-[50%] border border-primary/25"
                 style={{ transform: `translateX(-50%) rotateY(${deg}deg)` }}
               />
             ))}
