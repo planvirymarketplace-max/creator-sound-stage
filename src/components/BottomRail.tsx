@@ -34,6 +34,15 @@ const rails: {
     ],
   },
   {
+    label: "Podcast",
+    links: [
+      { label: "Podcast hub", to: "/podcast" },
+      { label: "Create a podcast", to: "/podcast/create" },
+      { label: "Podcast analytics", to: "/podcast/analytics" },
+      { label: "Podcast directory", to: "/podcast/directory" },
+    ],
+  },
+  {
     label: "Get on Musicosy",
     links: [
       { label: "Start onboarding", to: "/onboarding" },
@@ -42,7 +51,7 @@ const rails: {
       { label: "Distribution partners", to: "/for/distributors" },
     ],
   },
-];
+
 
 export function BottomRail() {
   return (
