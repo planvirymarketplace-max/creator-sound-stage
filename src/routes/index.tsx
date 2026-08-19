@@ -233,10 +233,10 @@ function Landing() {
             playsInline
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-ink/15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/30" />
           <div
             className="absolute inset-0 bg-ink transition-opacity duration-300"
-            style={{ opacity: 0.15 + progress * 0.45 }}
+            style={{ opacity: 0.3 + progress * 0.45 }}
           />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-ink" />
         </div>
