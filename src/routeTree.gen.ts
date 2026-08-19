@@ -27,6 +27,7 @@ import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.business'
 import { Route as PodcastIndexRouteImport } from './routes/podcast.index'
+import { Route as PodcastCreateRouteImport } from './routes/podcast.create'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -118,6 +119,11 @@ const PodcastIndexRoute = PodcastIndexRouteImport.update({
   path: '/podcast/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PodcastCreateRoute = PodcastCreateRouteImport.update({
+  id: '/podcast/create',
+  path: '/podcast/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/create': typeof PodcastCreateRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
@@ -154,6 +161,7 @@ export interface FileRoutesByTo {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/create': typeof PodcastCreateRoute
   '/advertising': typeof AdvertisingIndexRoute
   '/community': typeof CommunityIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
@@ -175,6 +183,7 @@ export interface FileRoutesById {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/create': typeof PodcastCreateRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
@@ -197,6 +206,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/create'
     | '/advertising/'
     | '/community/'
     | '/onboarding/'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/create'
     | '/advertising'
     | '/community'
     | '/onboarding'
@@ -237,6 +248,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/create'
     | '/advertising/'
     | '/community/'
     | '/onboarding/'
@@ -258,6 +270,7 @@ export interface RootRouteChildren {
   LegalRightsRoute: typeof LegalRightsRoute
   LegalTermsRoute: typeof LegalTermsRoute
   OnboardingBusinessRoute: typeof OnboardingBusinessRoute
+  PodcastCreateRoute: typeof PodcastCreateRoute
   AdvertisingIndexRoute: typeof AdvertisingIndexRoute
   CommunityIndexRoute: typeof CommunityIndexRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
@@ -392,6 +405,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PodcastIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/podcast/create': {
+      id: '/podcast/create'
+      path: '/podcast/create'
+      fullPath: '/podcast/create'
+      preLoaderRoute: typeof PodcastCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -410,6 +430,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRightsRoute: LegalRightsRoute,
   LegalTermsRoute: LegalTermsRoute,
   OnboardingBusinessRoute: OnboardingBusinessRoute,
+  PodcastCreateRoute: PodcastCreateRoute,
   AdvertisingIndexRoute: AdvertisingIndexRoute,
   CommunityIndexRoute: CommunityIndexRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,
