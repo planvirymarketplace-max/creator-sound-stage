@@ -51,6 +51,7 @@ const rails: {
       { label: "Distribution partners", to: "/for/distributors" },
     ],
   },
+];
 
 
 export function BottomRail() {
