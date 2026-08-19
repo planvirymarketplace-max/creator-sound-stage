@@ -26,6 +26,10 @@ import { Route as LegalRightsRouteImport } from './routes/legal.rights'
 import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.business'
+import { Route as PodcastIndexRouteImport } from './routes/podcast.index'
+import { Route as PodcastAnalyticsRouteImport } from './routes/podcast.analytics'
+import { Route as PodcastCreateRouteImport } from './routes/podcast.create'
+import { Route as PodcastDirectoryRouteImport } from './routes/podcast.directory'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,6 +116,26 @@ const OnboardingBusinessRoute = OnboardingBusinessRouteImport.update({
   path: '/onboarding/business',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PodcastIndexRoute = PodcastIndexRouteImport.update({
+  id: '/podcast/',
+  path: '/podcast/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastAnalyticsRoute = PodcastAnalyticsRouteImport.update({
+  id: '/podcast/analytics',
+  path: '/podcast/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastCreateRoute = PodcastCreateRouteImport.update({
+  id: '/podcast/create',
+  path: '/podcast/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastDirectoryRoute = PodcastDirectoryRouteImport.update({
+  id: '/podcast/directory',
+  path: '/podcast/directory',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -128,9 +152,13 @@ export interface FileRoutesByFullPath {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
+  '/podcast/create': typeof PodcastCreateRoute
+  '/podcast/directory': typeof PodcastDirectoryRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
+  '/podcast/': typeof PodcastIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -147,9 +175,13 @@ export interface FileRoutesByTo {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
+  '/podcast/create': typeof PodcastCreateRoute
+  '/podcast/directory': typeof PodcastDirectoryRoute
   '/advertising': typeof AdvertisingIndexRoute
   '/community': typeof CommunityIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
+  '/podcast': typeof PodcastIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -167,9 +199,13 @@ export interface FileRoutesById {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
+  '/podcast/create': typeof PodcastCreateRoute
+  '/podcast/directory': typeof PodcastDirectoryRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
+  '/podcast/': typeof PodcastIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -188,9 +224,13 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
+    | '/podcast/create'
+    | '/podcast/directory'
     | '/advertising/'
     | '/community/'
     | '/onboarding/'
+    | '/podcast/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -207,9 +247,13 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
+    | '/podcast/create'
+    | '/podcast/directory'
     | '/advertising'
     | '/community'
     | '/onboarding'
+    | '/podcast'
   id:
     | '__root__'
     | '/'
@@ -226,9 +270,13 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
+    | '/podcast/create'
+    | '/podcast/directory'
     | '/advertising/'
     | '/community/'
     | '/onboarding/'
+    | '/podcast/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -246,9 +294,13 @@ export interface RootRouteChildren {
   LegalRightsRoute: typeof LegalRightsRoute
   LegalTermsRoute: typeof LegalTermsRoute
   OnboardingBusinessRoute: typeof OnboardingBusinessRoute
+  PodcastAnalyticsRoute: typeof PodcastAnalyticsRoute
+  PodcastCreateRoute: typeof PodcastCreateRoute
+  PodcastDirectoryRoute: typeof PodcastDirectoryRoute
   AdvertisingIndexRoute: typeof AdvertisingIndexRoute
   CommunityIndexRoute: typeof CommunityIndexRoute
   OnboardingIndexRoute: typeof OnboardingIndexRoute
+  PodcastIndexRoute: typeof PodcastIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -372,6 +424,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingBusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/podcast/': {
+      id: '/podcast/'
+      path: '/podcast'
+      fullPath: '/podcast/'
+      preLoaderRoute: typeof PodcastIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcast/analytics': {
+      id: '/podcast/analytics'
+      path: '/podcast/analytics'
+      fullPath: '/podcast/analytics'
+      preLoaderRoute: typeof PodcastAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcast/create': {
+      id: '/podcast/create'
+      path: '/podcast/create'
+      fullPath: '/podcast/create'
+      preLoaderRoute: typeof PodcastCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcast/directory': {
+      id: '/podcast/directory'
+      path: '/podcast/directory'
+      fullPath: '/podcast/directory'
+      preLoaderRoute: typeof PodcastDirectoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -390,9 +470,13 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRightsRoute: LegalRightsRoute,
   LegalTermsRoute: LegalTermsRoute,
   OnboardingBusinessRoute: OnboardingBusinessRoute,
+  PodcastAnalyticsRoute: PodcastAnalyticsRoute,
+  PodcastCreateRoute: PodcastCreateRoute,
+  PodcastDirectoryRoute: PodcastDirectoryRoute,
   AdvertisingIndexRoute: AdvertisingIndexRoute,
   CommunityIndexRoute: CommunityIndexRoute,
   OnboardingIndexRoute: OnboardingIndexRoute,
+  PodcastIndexRoute: PodcastIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
