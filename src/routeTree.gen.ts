@@ -27,6 +27,7 @@ import { Route as LegalTermsRouteImport } from './routes/legal.terms'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding.index'
 import { Route as OnboardingBusinessRouteImport } from './routes/onboarding.business'
 import { Route as PodcastIndexRouteImport } from './routes/podcast.index'
+import { Route as PodcastAnalyticsRouteImport } from './routes/podcast.analytics'
 import { Route as PodcastCreateRouteImport } from './routes/podcast.create'
 
 const IndexRoute = IndexRouteImport.update({
@@ -119,6 +120,11 @@ const PodcastIndexRoute = PodcastIndexRouteImport.update({
   path: '/podcast/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PodcastAnalyticsRoute = PodcastAnalyticsRouteImport.update({
+  id: '/podcast/analytics',
+  path: '/podcast/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PodcastCreateRoute = PodcastCreateRouteImport.update({
   id: '/podcast/create',
   path: '/podcast/create',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
   '/podcast/create': typeof PodcastCreateRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
   '/podcast/create': typeof PodcastCreateRoute
   '/advertising': typeof AdvertisingIndexRoute
   '/community': typeof CommunityIndexRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/legal/rights': typeof LegalRightsRoute
   '/legal/terms': typeof LegalTermsRoute
   '/onboarding/business': typeof OnboardingBusinessRoute
+  '/podcast/analytics': typeof PodcastAnalyticsRoute
   '/podcast/create': typeof PodcastCreateRoute
   '/advertising/': typeof AdvertisingIndexRoute
   '/community/': typeof CommunityIndexRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
     | '/podcast/create'
     | '/advertising/'
     | '/community/'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
     | '/podcast/create'
     | '/advertising'
     | '/community'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/legal/rights'
     | '/legal/terms'
     | '/onboarding/business'
+    | '/podcast/analytics'
     | '/podcast/create'
     | '/advertising/'
     | '/community/'
@@ -270,6 +282,7 @@ export interface RootRouteChildren {
   LegalRightsRoute: typeof LegalRightsRoute
   LegalTermsRoute: typeof LegalTermsRoute
   OnboardingBusinessRoute: typeof OnboardingBusinessRoute
+  PodcastAnalyticsRoute: typeof PodcastAnalyticsRoute
   PodcastCreateRoute: typeof PodcastCreateRoute
   AdvertisingIndexRoute: typeof AdvertisingIndexRoute
   CommunityIndexRoute: typeof CommunityIndexRoute
@@ -405,6 +418,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PodcastIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/podcast/analytics': {
+      id: '/podcast/analytics'
+      path: '/podcast/analytics'
+      fullPath: '/podcast/analytics'
+      preLoaderRoute: typeof PodcastAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/podcast/create': {
       id: '/podcast/create'
       path: '/podcast/create'
@@ -430,6 +450,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRightsRoute: LegalRightsRoute,
   LegalTermsRoute: LegalTermsRoute,
   OnboardingBusinessRoute: OnboardingBusinessRoute,
+  PodcastAnalyticsRoute: PodcastAnalyticsRoute,
   PodcastCreateRoute: PodcastCreateRoute,
   AdvertisingIndexRoute: AdvertisingIndexRoute,
   CommunityIndexRoute: CommunityIndexRoute,
